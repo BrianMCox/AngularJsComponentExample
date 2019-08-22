@@ -9,10 +9,14 @@
 
             vm.characters = ['Biff', 'Doc', 'Lorraine', 'George', 'Marty'];
             vm.selectedCharacter = null;
-            vm.greeting = 'Hola';
+            vm.isSpeedEightyEightMph = false;
 
             vm.onQuoteSelected = function() {
                 alert('quote selected yo!');
+            }
+
+            vm.hitTheGas = function() {
+                vm.isSpeedEightyEightMph = true;
             }
         }
 })();

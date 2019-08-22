@@ -1,6 +1,8 @@
 <html ng-app="myApp">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="src/app.js"></script>
     <script src="src/homeCtrl.js"></script>
@@ -8,16 +10,23 @@
 </head>
 
 <body ng-controller="HomeCtrl as vm">
-    {{ vm.greeting }}, let's go back to the future and work on this AngularJS app!
-
-    <div>
-        Select a character to see a quote
-        <select id="characterSelect" ng-model="vm.selectedCharacter">
-            <option ng-repeat="name in vm.characters" value="{{name}}">{{name}}</option>
-        </select>
+    <div class="center" ng-if="!vm.isSpeedEightyEightMph">
+        <h2>Let's go back to a simpler time... a time before RxJS, WebPack, service workers, PWA's, Bazel...</h2>
+        <button ng-click="vm.hitTheGas()">Let's Go</button>
     </div>
 
-    <bttf-quotes character="vm.selectedCharacter" on-quote-retrieved="vm.onQuoteSelected()"></bttf-quotes>
+    <div class="center" ng-if="vm.isSpeedEightyEightMph">
+        <img src="logo.png">
+
+        <div class="center">
+            <h2>Select a character to see a quote</h2>
+            <select id="characterSelect" ng-model="vm.selectedCharacter">
+                <option ng-repeat="name in vm.characters" value="{{name}}">{{name}}</option>
+            </select>
+        </div>
+
+        <bttf-quotes character="vm.selectedCharacter" on-quote-retrieved="vm.onQuoteSelected()"></bttf-quotes>
+    </div>
 </body>
 
 </html>
