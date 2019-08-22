@@ -1,0 +1,23 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/homeCtrl.js"></script>
+    <script src="src/quote-component/quote-component.controller.js"></script>
+</head>
+
+<body ng-controller="HomeCtrl as vm">
+    {{ vm.greeting }}, let's go back to the future and work on this AngularJS app!
+
+    <div>
+        Select a character to see a quote
+        <select id="characterSelect" ng-model="vm.selectedCharacter">
+            <option ng-repeat="name in vm.characters" value="{{name}}">{{name}}</option>
+        </select>
+    </div>
+
+    <bttf-quotes character="vm.selectedCharacter" on-quote-retrieved="vm.onQuoteSelected()"></bttf-quotes>
+</body>
+
+</html>
