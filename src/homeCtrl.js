@@ -10,9 +10,10 @@
             vm.characters = ['Biff', 'Doc', 'Lorraine', 'George', 'Marty'];
             vm.selectedCharacter = null;
             vm.isSpeedEightyEightMph = false;
+            vm.quoteCount = 0;
 
             vm.onQuoteSelected = function() {
-                alert('quote selected yo!');
+                vm.quoteCount += 1;
             }
 
             vm.hitTheGas = function() {
